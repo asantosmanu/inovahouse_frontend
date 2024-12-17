@@ -1,0 +1,5 @@
+  imoveisStore.getImoveis()
+  await getImoveis();
+  console.log(imoveisStore.imoveis)
+  imoveis.value = imoveisStore.imoveis.filter((imovel) => imovel.metragem <= imoveisStore.filtros.metragem && imovel.quantidade_banheiro <= imoveisStore.filtros.banheiros && imovel.quantidade_quarto <= imoveisStore.filtros.quartos && imovel.quantidade_suite <= imoveisStore.filtros.suite)
+  console.log(imoveis.value)
