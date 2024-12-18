@@ -8,8 +8,18 @@ const imoveisStore = useImoveisStore();
 const imoveis = ref([])
 
 onMounted(async () => {
+  console.log(imoveisStore.imoveis);
   await imoveisStore.getImoveis()
-  imoveis.value = imoveisStore.imoveis.filter((imovel) => imovel.metragem <= imoveisStore.filtros.metragem && imovel.quantidade_banheiro <= imoveisStore.filtros.banheiros && imovel.quantidade_quarto <= imoveisStore.filtros.quartos && imovel.quantidade_suite <= imoveisStore.filtros.suite)
+  imoveis.value = imoveisStore.imoveis.filter((imovel) => {
+  return (
+    imovel.metragem <= imoveisStore.filtros.metragem &&
+    imovel.quantidade_banheiro <= imoveisStore.filtros.banheiros &&
+    imovel.quantidade_quarto <= imoveisStore.filtros.quartos &&
+    imovel.quantidade_suite <= imoveisStore.filtros.suite
+  );
+});
+
+ //imoveis.value = imoveisStore.imoveis.filter((imovel) => imovel.metragem <= imoveisStore.filtros.metragem && imovel.quantidade_banheiro <= imoveisStore.filtros.banheiros && imovel.quantidade_quarto <= imoveisStore.filtros.quartos && imovel.quantidade_suite <= imoveisStore.filtros.suite)
 });
 
 </script>
