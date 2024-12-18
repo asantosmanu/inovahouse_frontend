@@ -283,7 +283,6 @@ onMounted(async () => {
   flex-wrap: wrap;
 }
 
-
 .containerImovel {
   width: 50%;
   margin: auto;
@@ -305,7 +304,8 @@ onMounted(async () => {
 
   }
     .containerImovel:first-child img {
-      width: 50vw !important;
+     width: 400px !important;
+     height: 400px !important;
     }
 
     .imovel-title {
@@ -319,7 +319,8 @@ onMounted(async () => {
 }
 
 .containerImovel:first-child img {
-  width: 20vw;
+  width: 400px !important;
+  height: 300px !important;
 }
 
 .imovel-card>div {

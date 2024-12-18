@@ -21,7 +21,6 @@ onMounted(async () => {
 
  //imoveis.value = imoveisStore.imoveis.filter((imovel) => imovel.metragem <= imoveisStore.filtros.metragem && imovel.quantidade_banheiro <= imoveisStore.filtros.banheiros && imovel.quantidade_quarto <= imoveisStore.filtros.quartos && imovel.quantidade_suite <= imoveisStore.filtros.suite)
 });
-
 </script>
 
 <template>
@@ -37,18 +36,20 @@ onMounted(async () => {
       <p class="prodn">IMÓVEIS NÃO ENCONTRADOS!! </p>
     </div>
     <div v-for="imovel in imoveis" :key="imovel.id" class="imovel-card">
-      <div class="imovel-img-wrapper">
-        <img :src="imovel.foto?.url" alt="imovel.name" />
-        <i class="mdi mdi-heart-outline" />
-      </div>
-      <div class="details">
-        <ul>
-          <div class="imovel-title">
-            <h3>{{ (imovel.nome) }}</h3>
-          </div>
-          <div class="writes-cards">
-            <div class="imovel-price">
-              <p>{{ formatPrice(imovel.preco * 1) }}</p>
+      <div class="containerImovel">
+
+        <div class="imovel-img-wrapper">
+          <img :src="imovel.foto?.url" alt="imovel.name" />
+          <i class="mdi mdi-heart-outline" />
+        </div>
+        <div class="details">
+          <ul>
+            <div class="imovel-title">
+              <h3>{{ (imovel.nome) }}</h3>
+            </div>
+            <div class="writes-cards">
+              <div class="imovel-price">
+                <p>{{ formatPrice(imovel.preco * 1) }}</p>
             </div>
             <div class="location">
               <p>
@@ -73,7 +74,7 @@ onMounted(async () => {
               </div>
             </div>
           </div>
-
+          
         </ul>
         <div class="imovel-description-stars">
           <div class="stars">
@@ -86,13 +87,15 @@ onMounted(async () => {
         </div>
       </div>
     </div>
+    </div>
   </div>
 </template>
 
 <style scoped>
-.nhs{ 
+.nhs {
   font-weight: bold;
 }
+
 .prodn {
   flex-direction: column;
   display: flex;
@@ -106,7 +109,6 @@ onMounted(async () => {
 
 .details {
   padding: 20px;
-  
 }
 
 .badge {
@@ -236,15 +238,62 @@ onMounted(async () => {
 
 .imovel-card {
   display: flex;
-  flex: 1 1 calc(33.333% - 1.5rem); 
+  flex: 1 1 calc(33.333% - 1.5rem);
   gap: 16px;
   justify-content: center;
   flex-wrap: wrap;
 }
 
-.imovel-img-wrapper {
-  width: 400px;
+.containerImovel {
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1fr 3fr;
 }
+
+@media screen and (max-width: 1024px) {
+  .containerImovel {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .imovel-card>div {
+    align-items: center;
+    display: flex !important;
+    flex-direction: column !important;
+
+
+  }
+    .containerImovel:first-child img {
+     width: 400px !important;
+     height: 400px !important;
+    }
+
+    .imovel-title {
+      font-size: 50pt ;
+  }
+
+  .imovel-price p {
+    font-size: 12pt;
+  }
+
+}
+
+.containerImovel:first-child img {
+  width: 400px !important;
+  height: 300px !important;
+}
+
+.imovel-card>div {
+  display: grid;
+  grid-template-columns: 1fr 3.5fr;
+  align-items: center;
+}
+
+
+.imovel-img-wrapper {
+  position: relative;
+}
+
 
 .imovel-title h3 {
   font-size: 30px;
@@ -270,5 +319,107 @@ onMounted(async () => {
 .imovel-description-stars p {
   font-size: 12px;
   color: #535050;
+}
+
+.banner1 {
+  background-image: url('https://www.rafaelfonsecaimoveis.com.br/assets/img/banner-1.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: auto;
+  min-height: 400px;
+  background-position: center;
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.shadow {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #01081d80;
+  z-index: 1;
+}
+
+
+.botao {
+  display: flex;
+  align-items: center;
+  background-color: #f28a31;
+  color: #ffffff;
+  width: 100%;
+  max-width: 200px;
+  margin: 16px auto;
+  padding: 10px 20px;
+  border: 2px solid #f28a31;
+  transition: background-color 1s ease, color 1s ease;
+  justify-content: center;
+  border-radius: 5px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 20px;
+  border-top: 7px solid #f28a31;
+  background-color: #102442;
+  opacity: 80%;
+  width: 90%;
+  max-width: 700px;
+  height: auto;
+  min-height: 400px;
+  position: relative;
+  margin: 20px auto;
+  border-radius: 10px;
+  z-index: 2;
+}
+
+.caixinha1 {
+  padding: 0 10px;
+  width: 100%;
+  max-width: 300px;
+  margin: 10px auto;
+  background-color: #01081d80;
+  height: 38px;
+  line-height: 38px;
+  font-family: sans-serif;
+  color: white;
+  font-size: 15px;
+  text-align: center;
+}
+
+.inner-text {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+
+
+@media (min-width: 768px) {
+  .form {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 30px;
+  }
+
+  .caixinha1 {
+    width: 40%;
+    margin-left: 16px;
+  }
+
+  .botao {
+    width: auto;
+    padding: 10px 40px;
+    margin-left: 16px;
+  }
 }
 </style>
