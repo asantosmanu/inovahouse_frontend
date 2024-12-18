@@ -105,7 +105,7 @@ onMounted(async () => {
                 <p>
                   {{ (imovel.quantidade_banheiro) }} Banheiros
                 </p>
-                <div class="suite" v-if="(imovel.quantidade_suite) === 0">
+                <div class="suite" v-if="imovel.quantidade_suite">
                   <p class="nhs">Não há suítes</p>
                 </div>
                 <div class="suite" v-else>

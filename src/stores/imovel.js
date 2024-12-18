@@ -16,8 +16,10 @@ export const useImoveisStore = defineStore('imoveis', () => {
   })
 
   async function getImoveis() {
-    imoveis.value = await imoveisService.getImoveis();
-    console.log(imoveis.value)
+    const teste = await imoveisService.getImoveis()
+    imoveis.value = teste
+    console.log(imoveis.value);
+    
   }
 
   async function getImovelByCategory(category_id) {
