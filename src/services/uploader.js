@@ -4,7 +4,7 @@ export default class UploaderService {
   async uploadImage(image) {
     const formData = new FormData();
     formData.append('file', image);
-    const response = await axios.post('http://localhost:19003/api/media/images/', formData, {
+    const response = await axios.post('media/images/', formData, {
       headers: {
         'Content-Type': 'multipart/form-data',
       },

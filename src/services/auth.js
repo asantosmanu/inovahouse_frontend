@@ -2,7 +2,7 @@ import axios from 'axios';
 
 export default class AuthService {
   async postUserToken(token) {
-    const response = await axios.get('http://localhost:19003/api/usuarios/me/', {
+    const response = await axios.get('usuarios/me/', {
       headers: {
         Authorization: `Bearer ${token}`,
       },

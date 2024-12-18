@@ -19,7 +19,6 @@ onMounted(async () => {
   imoveis.value = imovelStore.imoveis
   // getUserInfoe();
 });
-
 </script>
 
 <template>
@@ -29,57 +28,59 @@ onMounted(async () => {
     </div>
     <div class="form">
 
-
-      <select class="caixinha1" v-on:keypress="ok = false" v-model="imovelStore.filtros.quartos">
-        <option value="0" disabled selected>Quartos</option>
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="10">mais</option>
-      </select>
-
-      <select class="caixinha1" v-on:keypress="ok = false" v-model="imovelStore.filtros.banheiros">
-        <option value="0" selected disabled>Banheiros</option>
-        <option value="1">01</option>
-        <option value="2">02</option>
-        <option value="3">mais</option>
-      </select>
-
-      <select class="caixinha1" v-on:keypress="ok = false" v-model="imovelStore.filtros.suite">
-        <option value="0" selected disabled>Suite</option>
-        <option value="1">01</option>
-        <option value="2">02</option>
-        <option value="3">mais</option>
-      </select>
-
-
-      <select class="caixinha1" v-on:keypress="ok = false" v-model="imovelStore.filtros.metragem">
-        <option value="0" selected disabled>Metragem</option>
-        <option value="10">10</option>
-        <option value="40">40</option>
-        <option value="10000000">mais</option>
-      </select>
-
-      <select class="caixinha1" v-on:keypress="ok = false" v-model="imovelStore.filtros.categoria">
-        <option value="0" selected disabled>Categoria</option>
-        <option value="1">01</option>
-        <option value="2">02</option>
-        <option value="10">mais</option>
-      </select>
-
-      <button class="botao" @click="$router.push({ name: 'BuscarImoveis' })">BUSCAR</button>
+        
+        
+        <select class="caixinha1" v-on:keypress="ok = false" v-model="imovelStore.filtros.quartos">
+          <option value="0" disabled selected>Quartos</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="10">mais</option>
+        </select>
+        
+        <select class="caixinha1" v-on:keypress="ok = false" v-model="imovelStore.filtros.banheiros">
+          <option value="0" selected disabled>Banheiros</option>
+          <option value="1">01</option>
+          <option value="2">02</option>
+          <option value="3">mais</option>
+        </select>
+        
+        <select class="caixinha1" v-on:keypress="ok = false" v-model="imovelStore.filtros.suite">
+          <option value="0" selected disabled>Suite</option>
+          <option value="1">01</option>
+          <option value="2">02</option>
+          <option value="3">mais</option>
+        </select>
+        
+        
+        <select class="caixinha1" v-on:keypress="ok = false" v-model="imovelStore.filtros.metragem">
+          <option value="0" selected disabled>Metragem</option>
+          <option value="10">10</option>
+          <option value="40">40</option>
+          <option value="10000000">mais</option>
+        </select>
+        
+        <select class="caixinha1" v-on:keypress="ok = false" v-model="imovelStore.filtros.categoria">
+          <option value="0" selected disabled>Categoria</option>
+          <option value="1">01</option>
+          <option value="2">02</option>
+          <option value="10">mais</option>
+        </select>
+        
+        <button class="botao" @click="$router.push({ name: 'BuscarImoveis' })">BUSCAR</button>
+      </div>
+      
     </div>
-
-  </div>
-
-  <div class="imovel">
-    <ImovelList />
-  </div>
-  <div>
+  
+    
+    <div class="imovel">
+      <ImovelList />
+    </div>
+    <div>
     <div v-for="imovel in imoveis" :key="imovel.id" class="imovel-card">
       <div class="containerImovel">
         <div class="imovel-img-wrapper">
           <img :src="imovel.foto?.url" alt="imovel.name" />
-          <i class="mdi mdi-heart-outline" />
+          <i class="mdi mdi-heart-outline"/>
         </div>
         <div class="details">
           <ul>
